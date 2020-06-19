@@ -1,4 +1,4 @@
-package com.zcs.config;
+package com.zcs.times;
 
 import lombok.extern.slf4j.Slf4j;
 import org.junit.Test;
