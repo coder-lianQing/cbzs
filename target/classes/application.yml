@@ -1,0 +1,40 @@
+spring:
+  application:
+    name: zcs-times
+
+
+# server
+server:
+  port: 8080
+  tomcat:
+    uri-encoding: UTF-8
+    max-threads: 1000
+    min-spare-threads: 30
+  connection-timeout: 5000
+  servlet:
+    context-path: /
+
+# monitor management, 用于监控
+management:
+  metrics:
+    export:
+      prometheus:
+        enabled: true
+  endpoints:
+    web:
+      base-path: /exporter
+      exposure:
+        include: prometheus
+    jmx:
+      exposure:
+        exclude: '*'
+  server:
+    port: 1${server.port}
+
+# logging
+logging:
+  path: logs
+  level:
+    org.springframework: warn
+    com.zcs.config: info
+    com.legion: info
